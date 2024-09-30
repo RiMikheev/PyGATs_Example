@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      {% block head %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      {% block styles %}
+      {{ bootstrap.load_css() }}
+      {% endblock %}
+
+      <title>Привет, мир!</title>
+      {% endblock %}
+    </head>
+    <body>
+      {% block content %}
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Укажите свое имя ниже</p>
+          <form action="" method="get" class="form-example">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <div class="input-group mb-3">
+                <input name="name" type="text" class="form-control" placeholder="Иван" value="{{ name }}">
+                <button class="btn btn-outline-secondary" type="submit">Поздороваться</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {% if name %}
+      <div class="px-4 py-5 my-5 text-center alert alert-success">
+        <h1 class="display-5 fw-bold">{{ greeting }}</h1>
+        <a href="{{ url_for('admin') }}">Перейти в админ панель</a>
+      </div>
+      {% endif %}
+      {% endblock %}
+
+      {% block scripts %}
+        {{ bootstrap.load_js() }}
+      {% endblock %}
+    </body>
+</html>
